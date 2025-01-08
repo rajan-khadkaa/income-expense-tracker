@@ -221,7 +221,7 @@ function Dashboard() {
               Rs {lastMonthSaving}
             </p>
             <p className="font-primaryMedium text-xs text-gray-400 m-0 ml-1">
-              Last Month's Saving
+              Past Savings
             </p>
           </div>
         </div>
