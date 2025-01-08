@@ -1,0 +1,10 @@
+/* .descInfo {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.6s ease !important;
+}
+
+.descInfo.expanded {
+  max-height: 200px;
+  transition: all 0.6s ease !important;
+} */

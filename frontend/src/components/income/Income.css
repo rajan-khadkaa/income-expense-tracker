@@ -1,0 +1,55 @@
+/* .descInfo {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.6s ease !important;
+}
+
+.descInfo.expanded {
+  max-height: 200px;
+  transition: all 0.6s ease !important;
+} */
+
+/* .income-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+} */
+
+/* .formMaxWidth {
+  max-width: 45%;
+} */
+
+/* .incCard {
+  cursor: pointer;
+  transition: all 0.6s ease !important;
+} */
+
+/* .background-container {
+  margin: 1rem;
+  height: 93vh;
+  width: fit-content;
+  min-width: 30vw;
+  max-width: 50vw;
+  box-sizing: border-box;
+  padding: var(--padding-card-md) var(--padding-card-sm);
+  background-color: var(--background);
+  color: var(--surface);
+  border: var(--border-lg) solid var(--border);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--box-shadow-md);
+} */
+
+/* .income-form-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+} */
+
+/* .income-history {
+  position: relative;
+  width: 50%;
+  border: 1px solid red;
+} */

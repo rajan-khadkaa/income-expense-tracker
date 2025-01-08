@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Light";
+  src: local("Satoshi-Light"),
+    url("./assets/fonts/Satoshi/Satoshi-Light.ttf") format("opentype");
+  /* font-family: "Light";
+  src: local("AfacadFlux-Light"),
+    url("./assets/fonts/Urbanist/Urbanist-Light.ttf") format("truetype"); */
+  /* src: local("AfacadFlux-Light"),
+    url("./assets/fonts/AfacadFlux/AfacadFlux-Light.ttf") format("truetype"); */
+  /* src: local("Figtree-Light"),
+    url("./assets/fonts/Figtree/Figtree-Light.ttf") format("truetype"); */
+}
+
+@font-face {
+  font-family: "Regular";
+  src: local("Satoshi-Regular"),
+    url("./assets/fonts/Satoshi/Satoshi-Regular.ttf") format("opentype");
+  /* font-family: "Regular";
+  src: local("Urbanist-Regular"),
+    url("./assets/fonts/Urbanist/Urbanist-Regular.ttf") format("truetype"); */
+  /* src: local("AfacadFlux-Regular"),
+    url("./assets/fonts/AfacadFlux/AfacadFlux-Regular.ttf") format("truetype"); */
+  /* src: local("Figtree-Regular"),
+    url("./assets/fonts/Figtree/Figtree-Regular.ttf") format("truetype"); */
+}
+
+@font-face {
+  font-family: "Medium";
+  src: local("Satoshi-Medium"),
+    url("./assets/fonts/Satoshi/Satoshi-Medium.ttf") format("opentype");
+  /* font-family: "Medium";
+  src: local("Urbanist-Medium"),
+    url("./assets/fonts/Urbanist/Urbanist-Medium.ttf") format("truetype"); */
+  /* src: local("AfacadFlux-Medium"),
+    url("./assets/fonts/AfacadFlux/AfacadFlux-Medium.ttf") format("truetype"); */
+  /* src: local("Figtree-Medium"),
+    url("./assets/fonts/Figtree/Figtree-Medium.ttf") format("truetype"); */
+}
+
+@font-face {
+  font-family: "SemiBold";
+  src: local("Satoshi-Black"),
+    url("./assets/fonts/Satoshi/Satoshi-Black.otf") format("opentype");
+  /* font-family: "SemiBold";
+  src: local("Urbanist-SemiBold"),
+    url("./assets/fonts/Urbanist/Urbanist-SemiBold.ttf") format("truetype"); */
+  /* src: local("AfacadFlux-SemiBold"),
+    url("./assets/fonts/AfacadFlux/AfacadFlux-SemiBold.ttf") format("truetype"); */
+  /* src: local("Figtree-SemiBold"),
+    url("./assets/fonts/Figtree/Figtree-SemiBold.ttf") format("truetype"); */
+}
+
+@font-face {
+  font-family: "Bold";
+  src: local("Satoshi-Bold"),
+    url("./assets/fonts/Satoshi/Satoshi-Bold.ttf") format("opentype");
+  /* font-family: "Bold";
+  src: local("Urbanist-Bold"),
+    url("./assets/fonts/Urbanist/Urbanist-Bold.ttf") format("truetype"); */
+  /* src: local("AfacadFlux-Bold"),
+    url("./assets/fonts/AfacadFlux/AfacadFlux-Bold.ttf") format("truetype"); */
+  /* src: local("Figtree-Bold"),
+    url("./assets/fonts/Figtree/Figtree-Bold.ttf") format("truetype"); */
+}
+
+/* html {
+  @apply font-sans;
+  margin: 0;
+  padding: 0;
+} */
+
+@layer base {
+  html {
+    @apply font-sans;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+  }
+
+  @screen md {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  @screen lg {
+    html {
+      font-size: 16px;
+    }
+  }
+}
+
+:root {
+  /* colors */
+  --color-brand: #4c20aa;
+  --color-brand-bg: #ece3ff;
+  /* --color-brand: #782b42;
+  --color-brand-bg: #f3dee4; */
+  --color-secondary: #f6aa09;
+  --color-secondary-bg: #fdeac1;
+  --color-tertiary: #f6ebd0;
+  --color-quatenary: #de5533;
+  --alert: #a50202;
+  --alert-bg: #f6bdbd;
+  --warning: #efef52;
+  --warning-bg: #fdfdbb;
+  --success: #039803;
+  --success-bg: #c3ffc3;
+
+  /* fonts */
+  /* font-family: "Lucida Sans", sans-serif; */
+  /* font-family: "Inter", system-ui, "Avenir", Helvetica, Arial, sans-serif; */
+
+  /* Font Sizes */
+  --font-display: 3rem; /* 48px → 3rem */
+  --font-xxl: 1.5rem; /* 24px → 1.5rem */
+  --font-xl: 1.25rem; /* 20px → 1.25rem */
+  --font-lg: 1.125rem; /* 18px → 1.125rem */
+  --font-md: 1rem; /* 16px → 1rem */
+  --font-sm: 0.875rem; /* 14px → 0.875rem */
+  --font-xs: 0.75rem; /* 12px → 0.75rem */
+  --font-xxs: 0.625rem; /* 10px → 0.625rem */
+
+  /* Padding */
+  --padding-btn-sm: 0.375rem 0.75rem; /* 6px 12px → 0.375rem 0.75rem */
+  --padding-btn-md: 0.5rem 1rem; /* 8px 16px → 0.5rem 1rem */
+  --padding-btn-lg: 0.625rem 1.5rem; /* 10px 24px → 0.625rem 1.5rem */
+
+  --padding-card-xxs: 0.25rem; /* 4px → 0.25rem */
+  --padding-card-xs: 0.5rem; /* 8px → 0.5rem */
+  --padding-card-sm: 0.75rem; /* 12px → 0.75rem */
+  --padding-card-md: 1rem; /* 16px → 1rem */
+  --padding-card-lg: 1.25rem; /* 20px → 1.25rem */
+  --padding-card-xl: 1.5rem; /* 24px → 1.5rem */
+  --paddng-card-xxl: 2rem; /* 32px → 2rem */
+
+  /* Borders (px for precision) */
+  --border-sm: 1px;
+  --border-md: 2px;
+  --border-lg: 3px;
+  --border-xl: 4px;
+
+  /* Border Radius (small, fixed values in px) */
+  --border-radius-xs: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-xxl: 20px;
+
+  /* shadow */
+  /* --shadow-lg: */
+  --background-whole: #f1f1f1;
+  --background: #f9f9f9;
+  --surface: #191919;
+  --border: #ffffff;
+
+  /* shadow */
+  --box-shadow-sm: 4px 4px 14px -20px #191919;
+  --box-shadow-md: 4px 4px 16px -19px #191919;
+  --box-shadow-lg: 4px 4px 16px -17px #191919;
+  /* --box-shadow-lg: 4px 4px 4px 4px #191919; */
+}
+
+body {
+  background-color: var(--background-whole);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dark {
+  --background-whole: #000000;
+  --background: #191919;
+  --surface: #fafafa;
+  --border: #4f4f4f;
+}
+
+.light {
+  --background-whole: #ffffff;
+  --background: #fafafa;
+  --surface: #191919;
+  --border: #ffffff;
+}
+
+.content-container {
+  margin: 1rem;
+  height: 93vh;
+  box-sizing: border-box;
+  /* padding: var(--padding-card-md) var(--padding-card-sm); */
+  background-color: var(--background);
+  color: var(--surface);
+  border: var(--border-lg) solid var(--border);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--box-shadow-md);
+}
+
+.descInfo {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.6s ease !important;
+}
+
+.descInfo.expanded {
+  max-height: 200px;
+  transition: all 0.6s ease !important;
+}
