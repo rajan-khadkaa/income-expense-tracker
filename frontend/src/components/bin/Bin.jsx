@@ -17,7 +17,7 @@ function Bin() {
 
   const getBinData = async () => {
     axios
-      .get(`http://localhost:4000/api/bin`, {
+      .get(`https://iet-backend.onrender.com/api/bin`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -39,7 +39,7 @@ function Bin() {
     );
     if (askConfirm) {
       await axios
-        .delete(`http://localhost:4000/api/bin/${id}`, {
+        .delete(`https://iet-backend.onrender.com/api/bin/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => alert("Record permanently deleted from bin."))
@@ -55,7 +55,7 @@ function Bin() {
     const askUser = confirm("Do you want to restore it?");
     if (askUser) {
       await axios
-        .post(`http://localhost:4000/api/bin/${id}`, null, {
+        .post(`https://iet-backend.onrender.com/api/bin/${id}`, null, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {

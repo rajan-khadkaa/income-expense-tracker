@@ -57,7 +57,7 @@ function Dashboard() {
 
   const getData = async () => {
     await axios
-      .get("http://localhost:4000/api/income", {
+      .get("https://iet-backend.onrender.com/api/income", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((inc) => {
@@ -77,7 +77,7 @@ function Dashboard() {
 
   async function getTotalIncome() {
     axios
-      .get(`http://localhost:4000/api/dashboard/totalIncome`, {
+      .get(`https://iet-backend.onrender.com/api/dashboard/totalIncome`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -88,7 +88,7 @@ function Dashboard() {
   }
   async function getTotalExpense() {
     axios
-      .get(`http://localhost:4000/api/dashboard/totalExpense`, {
+      .get(`https://iet-backend.onrender.com/api/dashboard/totalExpense`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -99,7 +99,7 @@ function Dashboard() {
   }
   async function getLastMonthSaving() {
     axios
-      .get(`http://localhost:4000/api/dashboard/lastMonthSaving`, {
+      .get(`https://iet-backend.onrender.com/api/dashboard/lastMonthSaving`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -110,9 +110,12 @@ function Dashboard() {
   }
   async function getRecentTransactions() {
     axios
-      .get(`http://localhost:4000/api/dashboard/recentTransactions`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        `https://iet-backend.onrender.com/api/dashboard/recentTransactions`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => {
         // console.log("recent first four tansactions are: ", res.data);
         setRecentTransactions(res.data);
@@ -122,9 +125,12 @@ function Dashboard() {
 
   async function getLastFourMonthTransaction() {
     axios
-      .get(`http://localhost:4000/api/dashboard/lastFourMonthTransaction`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        `https://iet-backend.onrender.com/api/dashboard/lastFourMonthTransaction`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => {
         setLastFourMonthIncome(res.data[0]);
         setLastFourMonthExpense(res.data[1]);

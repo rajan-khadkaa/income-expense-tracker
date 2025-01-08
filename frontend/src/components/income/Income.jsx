@@ -30,7 +30,7 @@ function Income() {
 
   const getData = async () => {
     await axios
-      .get("http://localhost:4000/api/income", {
+      .get("https://iet-backend.onrender.com/api/income", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((inc) => {
@@ -50,7 +50,7 @@ function Income() {
 
   async function getTotalIncome() {
     axios
-      .get(`http://localhost:4000/api/dashboard/totalIncome`, {
+      .get(`https://iet-backend.onrender.com/api/dashboard/totalIncome`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -90,9 +90,13 @@ function Income() {
     } else {
       if (editMode) {
         await axios
-          .put(`http://localhost:4000/api/income/${incomeId}`, formData, {
-            headers: { Authorization: `Bearer ${token}` },
-          })
+          .put(
+            `https://iet-backend.onrender.com/api/income/${incomeId}`,
+            formData,
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          )
           .catch((error) => {
             console.log(error);
             alert(error.response.data.message);
@@ -114,7 +118,7 @@ function Income() {
         // const formattedData = { ...formData, date: formatDate.toISOString() };
         // console.log("formatted all data including date is: ", formattedData);
         await axios
-          .post(`http://localhost:4000/api/income`, formattedData, {
+          .post(`https://iet-backend.onrender.com/api/income`, formattedData, {
             headers: { Authorization: `Bearer ${token}` },
           })
           .catch((error) => {
@@ -141,7 +145,7 @@ function Income() {
     const alertVal = confirm("Are you sure you want to delete record?");
     if (alertVal) {
       await axios
-        .delete(`http://localhost:4000/api/income/${id}`, {
+        .delete(`https://iet-backend.onrender.com/api/income/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => alert("Record deleted."))
@@ -157,7 +161,7 @@ function Income() {
 
   function handleEdit(id) {
     axios
-      .get(`http://localhost:4000/api/income/${id}`, {
+      .get(`https://iet-backend.onrender.com/api/income/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

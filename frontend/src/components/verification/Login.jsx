@@ -18,7 +18,10 @@ function Login() {
       const { email, password } = userCred;
       const checkUser = async (email, password) => {
         await axios
-          .post(`http://localhost:4000/api/user/login`, { email, password })
+          .post(`https://iet-backend.onrender.com/api/user/login`, {
+            email,
+            password,
+          })
           .then((res) => {
             try {
               // const verifiedStatus = res.data.message;

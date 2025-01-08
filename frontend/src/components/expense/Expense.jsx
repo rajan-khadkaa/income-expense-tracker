@@ -30,7 +30,7 @@ function Expense() {
 
   const getData = async () => {
     await axios
-      .get("http://localhost:4000/api/expense", {
+      .get("https://iet-backend.onrender.com/api/expense", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((exp) => {
@@ -51,7 +51,7 @@ function Expense() {
 
   async function getTotalExpense() {
     axios
-      .get(`http://localhost:4000/api/dashboard/totalExpense`, {
+      .get(`https://iet-backend.onrender.com/api/dashboard/totalExpense`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -91,9 +91,13 @@ function Expense() {
     } else {
       if (editMode) {
         await axios
-          .put(`http://localhost:4000/api/expense/${expenseId}`, formData, {
-            headers: { Authorization: `Bearer ${token}` },
-          })
+          .put(
+            `https://iet-backend.onrender.com/api/expense/${expenseId}`,
+            formData,
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          )
           .then(() => alert("Expense record updated successfully."))
           .catch((error) => {
             console.log(error);
@@ -101,7 +105,7 @@ function Expense() {
           });
       } else {
         await axios
-          .post(`http://localhost:4000/api/expense`, formData, {
+          .post(`https://iet-backend.onrender.com/api/expense`, formData, {
             headers: { Authorization: `Bearer ${token}` },
           })
           // .then(() =>
@@ -130,7 +134,7 @@ function Expense() {
     const alertVal = confirm("Are you sure you want to delete record?");
     if (alertVal) {
       await axios
-        .delete(`http://localhost:4000/api/expense/${id}`, {
+        .delete(`https://iet-backend.onrender.com/api/expense/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => alert("Record deleted."))
@@ -144,7 +148,7 @@ function Expense() {
 
   function handleEdit(id) {
     axios
-      .get(`http://localhost:4000/api/expense/${id}`, {
+      .get(`https://iet-backend.onrender.com/api/expense/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
