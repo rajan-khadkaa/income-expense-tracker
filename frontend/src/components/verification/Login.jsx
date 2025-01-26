@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import loginImage from "../../assets/images/login.png";
+const backendURL = import.meta.env.VITE_BACKEND_API;
 
 function Login() {
   const navigate = useNavigate();
@@ -18,10 +19,13 @@ function Login() {
       const { email, password } = userCred;
       const checkUser = async (email, password) => {
         await axios
-          .post(`${import.meta.env.VITE_BACKEND_API}/api/user/login`, {
-            email,
-            password,
-          })
+          .post(
+            `${backendURL}${backendURL.endsWith("/") ? "" : ""}/api/user/login`,
+            {
+              email,
+              password,
+            }
+          )
           .then((res) => {
             try {
               // const verifiedStatus = res.data.message;
