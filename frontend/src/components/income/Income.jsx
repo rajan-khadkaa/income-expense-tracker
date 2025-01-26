@@ -15,6 +15,7 @@ function Income() {
   const [editMode, setEditMode] = useState(false);
   const [incomeId, setIncomeId] = useState(null);
   const [expanded, setExpanded] = useState("");
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     title: "",
@@ -30,7 +31,7 @@ function Income() {
 
   const getData = async () => {
     await axios
-      .get("https://iet-backend.onrender.com/api/income", {
+      .get(`${import.meta.env.VITE_BACKEND_API}/api/income`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((inc) => {
@@ -50,7 +51,7 @@ function Income() {
 
   async function getTotalIncome() {
     axios
-      .get(`https://iet-backend.onrender.com/api/dashboard/totalIncome`, {
+      .get(`${import.meta.env.VITE_BACKEND_API}/api/dashboard/totalIncome`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -91,7 +92,7 @@ function Income() {
       if (editMode) {
         await axios
           .put(
-            `https://iet-backend.onrender.com/api/income/${incomeId}`,
+            `${import.meta.env.VITE_BACKEND_API}/api/income/${incomeId}`,
             formData,
             {
               headers: { Authorization: `Bearer ${token}` },
@@ -118,9 +119,13 @@ function Income() {
         // const formattedData = { ...formData, date: formatDate.toISOString() };
         // console.log("formatted all data including date is: ", formattedData);
         await axios
-          .post(`https://iet-backend.onrender.com/api/income`, formattedData, {
-            headers: { Authorization: `Bearer ${token}` },
-          })
+          .post(
+            `${import.meta.env.VITE_BACKEND_API}/api/income`,
+            formattedData,
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          )
           .catch((error) => {
             console.log(error);
             alert(error.response.data.message);
@@ -145,7 +150,7 @@ function Income() {
     const alertVal = confirm("Are you sure you want to delete record?");
     if (alertVal) {
       await axios
-        .delete(`https://iet-backend.onrender.com/api/income/${id}`, {
+        .delete(`${import.meta.env.VITE_BACKEND_API}/api/income/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => alert("Record deleted."))
@@ -161,7 +166,7 @@ function Income() {
 
   function handleEdit(id) {
     axios
-      .get(`https://iet-backend.onrender.com/api/income/${id}`, {
+      .get(`${import.meta.env.VITE_BACKEND_API}/api/income/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -279,66 +284,79 @@ function Income() {
         </form>
       </div>
       <hr className="my-6 lg:my-0 lg:mx-8 lg:border-[1px] lg:h-full" />
-      <div className=" flex flex-col gap-3 flex-1 h-full overflow-hidden">
+      <div className=" flex flex-col gap-2 flex-1 h-full overflow-hidden">
         <h3 className="mb-4 text-center font-primaryBold text-xl  bg-gray-100 text-gray-600 py-4 rounded">
           Income History
         </h3>
+        <div className="px-1 w-full">
+          <input
+            value={search}
+            className="px-3 w-full text-gray-600 text-sm py-2 m-0 rounded-md placeholder:text-xs placeholder:text-gray-400"
+            type="search"
+            placeholder="Search here"
+            onChange={(event) => setSearch(event.target.value.toLowerCase())}
+          />
+        </div>
         <ul className="flex flex-col p-1 gap-2 h-fit overflow-y-scroll scroll-smooth scrolling-auto">
           {income.length > 0 ? (
-            income.map((inc) => (
-              <li key={inc._id}>
-                <div className="w-full drop-shadow-sm bg-white  rounded-lg text-gray-600 h-fit px-4 py-3">
-                  <div className="flex justify-between">
-                    <div className="flex flex-col justify-start">
-                      <p className=" text-gray-400 font-primaryRegular mb-1 text-xs">
-                        {inc.title}
-                      </p>
-                      <h4 className=" text-green-600 font-primaryBold text-lg">
-                        Rs. {inc.amount}
-                      </h4>
-                    </div>
-                    <div className="flex flex-col justify-start gap-2">
-                      <p className=" text-gray-400 font-primaryRegular text-xs">
-                        {handleDateDisplay(inc.date)}
-                      </p>
-                      <div className="flex gap-1">
-                        <button
-                          className="bg-gray-200 text-gray-600 px-1 py-1 rounded-md"
-                          onClick={() => handleExpand(inc._id)}
-                        >
-                          {/* View */}
-                          <SquareArrowDiagonal01Icon size={18} />
-                        </button>
-                        <button
-                          className="bg-sky-100 text-sky-700 px-1 py-1 rounded-md"
-                          onClick={() => handleEdit(inc._id)}
-                        >
-                          {/* Edit */}
-                          <PencilEdit01Icon size={18} />
-                        </button>
-                        <button
-                          className="bg-red-100 text-red-700 px-1 py-1 rounded-md"
-                          onClick={() => handleDelete(inc._id)}
-                        >
-                          {/* Delete */}
-                          <Delete03Icon size={18} />
-                        </button>
+            income
+              .filter((item) =>
+                search === "" ? item : item.title.toLowerCase().includes(search)
+              )
+              .map((inc) => (
+                <li key={inc._id}>
+                  <div className="w-full drop-shadow-sm bg-white  rounded-lg text-gray-600 h-fit px-4 py-3">
+                    <div className="flex justify-between">
+                      <div className="flex flex-col justify-start">
+                        <p className=" text-gray-400 font-primaryRegular mb-1 text-xs">
+                          {inc.title}
+                        </p>
+                        <h4 className=" text-green-600 font-primaryBold text-lg">
+                          Rs. {inc.amount}
+                        </h4>
+                      </div>
+                      <div className="flex flex-col justify-start gap-2">
+                        <p className=" text-gray-400 font-primaryRegular text-xs">
+                          {handleDateDisplay(inc.date)}
+                        </p>
+                        <div className="flex gap-1">
+                          <button
+                            className="bg-gray-200 text-gray-600 px-1 py-1 rounded-md"
+                            onClick={() => handleExpand(inc._id)}
+                          >
+                            {/* View */}
+                            <SquareArrowDiagonal01Icon size={18} />
+                          </button>
+                          <button
+                            className="bg-sky-100 text-sky-700 px-1 py-1 rounded-md"
+                            onClick={() => handleEdit(inc._id)}
+                          >
+                            {/* Edit */}
+                            <PencilEdit01Icon size={18} />
+                          </button>
+                          <button
+                            className="bg-red-100 text-red-700 px-1 py-1 rounded-md"
+                            onClick={() => handleDelete(inc._id)}
+                          >
+                            {/* Delete */}
+                            <Delete03Icon size={18} />
+                          </button>
+                        </div>
                       </div>
                     </div>
+                    <div
+                      className={`descInfo ${
+                        expanded === inc._id ? "expanded" : ""
+                      }`}
+                    >
+                      <hr className="m-auto my-3 flex align-middle w-full" />
+                      <p className=" text-gray-400 font-primaryRegular text-sm">
+                        {inc.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div
-                    className={`descInfo ${
-                      expanded === inc._id ? "expanded" : ""
-                    }`}
-                  >
-                    <hr className="m-auto my-3 flex align-middle w-full" />
-                    <p className=" text-gray-400 font-primaryRegular text-sm">
-                      {inc.desc}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))
+                </li>
+              ))
           ) : (
             <p className="text-center mt-3 text-sm text-gray-600">
               No income records.

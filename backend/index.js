@@ -14,7 +14,7 @@ const dashboardRoutes = require("./routes/dashboard.routes.js");
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://income-expense-haql.onrender.com",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );

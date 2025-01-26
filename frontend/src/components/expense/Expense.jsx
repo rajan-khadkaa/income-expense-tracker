@@ -15,6 +15,7 @@ function Expense() {
   const [editMode, setEditMode] = useState(false);
   const [expenseId, setExpenseId] = useState(null);
   const [expanded, setExpanded] = useState(false);
+  const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     title: "",
@@ -30,7 +31,7 @@ function Expense() {
 
   const getData = async () => {
     await axios
-      .get("https://iet-backend.onrender.com/api/expense", {
+      .get(`${import.meta.env.VITE_BACKEND_API}/api/expense`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((exp) => {
@@ -51,7 +52,7 @@ function Expense() {
 
   async function getTotalExpense() {
     axios
-      .get(`https://iet-backend.onrender.com/api/dashboard/totalExpense`, {
+      .get(`${import.meta.env.VITE_BACKEND_API}/api/dashboard/totalExpense`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -92,7 +93,7 @@ function Expense() {
       if (editMode) {
         await axios
           .put(
-            `https://iet-backend.onrender.com/api/expense/${expenseId}`,
+            `${import.meta.env.VITE_BACKEND_API}/api/expense/${expenseId}`,
             formData,
             {
               headers: { Authorization: `Bearer ${token}` },
@@ -105,7 +106,7 @@ function Expense() {
           });
       } else {
         await axios
-          .post(`https://iet-backend.onrender.com/api/expense`, formData, {
+          .post(`${import.meta.env.VITE_BACKEND_API}/api/expense`, formData, {
             headers: { Authorization: `Bearer ${token}` },
           })
           // .then(() =>
@@ -134,7 +135,7 @@ function Expense() {
     const alertVal = confirm("Are you sure you want to delete record?");
     if (alertVal) {
       await axios
-        .delete(`https://iet-backend.onrender.com/api/expense/${id}`, {
+        .delete(`${import.meta.env.VITE_BACKEND_API}/api/expense/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => alert("Record deleted."))
@@ -148,7 +149,7 @@ function Expense() {
 
   function handleEdit(id) {
     axios
-      .get(`https://iet-backend.onrender.com/api/expense/${id}`, {
+      .get(`${import.meta.env.VITE_BACKEND_API}/api/expense/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -265,66 +266,79 @@ function Expense() {
         </form>
       </div>
       <hr className="my-6 lg:my-0 lg:mx-8 lg:border-[1px] lg:h-full" />
-      <div className=" flex flex-col gap-3 flex-1 h-full overflow-hidden">
+      <div className=" flex flex-col gap-2 flex-1 h-full overflow-hidden">
         <h3 className="mb-4 text-center font-primaryBold text-xl  bg-gray-100 text-gray-600 py-4 rounded">
           Expense History
         </h3>
+        <div className="px-1 w-full">
+          <input
+            value={search}
+            className="px-3 w-full text-gray-600 text-sm py-2 m-0 rounded-md placeholder:text-xs placeholder:text-gray-400"
+            type="search"
+            placeholder="Search here"
+            onChange={(event) => setSearch(event.target.value.toLowerCase())}
+          />
+        </div>
         <ul className="flex flex-col p-1 gap-2 h-fit overflow-y-scroll scroll-smooth scrolling-auto">
           {expense.length > 0 ? (
-            expense.map((exp) => (
-              <li key={exp._id}>
-                <div className="w-full drop-shadow-sm bg-white rounded-lg text-gray-600 h-fit px-4 py-3">
-                  <div className="flex justify-between">
-                    <div className="flex flex-col justify-start">
-                      <p className=" text-gray-400 font-primaryRegular text-xs mb-1">
-                        {exp.title}
-                      </p>
-                      <h4 className=" text-red-700 font-primaryBold text-lg">
-                        Rs. {exp.amount}
-                      </h4>
-                    </div>
-                    <div className="flex flex-col justify-start gap-2">
-                      <p className=" text-gray-400 font-primaryRegular text-xs">
-                        {handleDateDisplay(exp.date)}
-                      </p>
-                      <div className="flex gap-1">
-                        <button
-                          className="bg-gray-200 text-gray-600 px-1 py-1 rounded-md"
-                          onClick={() => handleExpand(exp._id)}
-                        >
-                          {/* View */}
-                          <SquareArrowDiagonal01Icon size={18} />
-                        </button>
-                        <button
-                          className="bg-sky-100 text-sky-700 px-1 py-1 rounded-md"
-                          onClick={() => handleEdit(exp._id)}
-                        >
-                          {/* Edit */}
-                          <PencilEdit01Icon size={18} />
-                        </button>
-                        <button
-                          className="bg-red-100 text-red-700 px-1 py-1 rounded-md"
-                          onClick={() => handleDelete(exp._id)}
-                        >
-                          {/* Delete */}
-                          <Delete03Icon size={18} />
-                        </button>
+            expense
+              .filter((item) =>
+                search === "" ? item : item.title.toLowerCase().includes(search)
+              )
+              .map((exp) => (
+                <li key={exp._id}>
+                  <div className="w-full drop-shadow-sm bg-white rounded-lg text-gray-600 h-fit px-4 py-3">
+                    <div className="flex justify-between">
+                      <div className="flex flex-col justify-start">
+                        <p className=" text-gray-400 font-primaryRegular text-xs mb-1">
+                          {exp.title}
+                        </p>
+                        <h4 className=" text-red-700 font-primaryBold text-lg">
+                          Rs. {exp.amount}
+                        </h4>
+                      </div>
+                      <div className="flex flex-col justify-start gap-2">
+                        <p className=" text-gray-400 font-primaryRegular text-xs">
+                          {handleDateDisplay(exp.date)}
+                        </p>
+                        <div className="flex gap-1">
+                          <button
+                            className="bg-gray-200 text-gray-600 px-1 py-1 rounded-md"
+                            onClick={() => handleExpand(exp._id)}
+                          >
+                            {/* View */}
+                            <SquareArrowDiagonal01Icon size={18} />
+                          </button>
+                          <button
+                            className="bg-sky-100 text-sky-700 px-1 py-1 rounded-md"
+                            onClick={() => handleEdit(exp._id)}
+                          >
+                            {/* Edit */}
+                            <PencilEdit01Icon size={18} />
+                          </button>
+                          <button
+                            className="bg-red-100 text-red-700 px-1 py-1 rounded-md"
+                            onClick={() => handleDelete(exp._id)}
+                          >
+                            {/* Delete */}
+                            <Delete03Icon size={18} />
+                          </button>
+                        </div>
                       </div>
                     </div>
+                    <div
+                      className={`descInfo ${
+                        expanded === exp._id ? "expanded" : ""
+                      }`}
+                    >
+                      <hr className="m-auto my-3 flex align-middle w-full" />
+                      <p className=" text-gray-400 font-primaryRegular text-sm">
+                        {exp.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div
-                    className={`descInfo ${
-                      expanded === exp._id ? "expanded" : ""
-                    }`}
-                  >
-                    <hr className="m-auto my-3 flex align-middle w-full" />
-                    <p className=" text-gray-400 font-primaryRegular text-sm">
-                      {exp.desc}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))
+                </li>
+              ))
           ) : (
             <p className="text-center mt-3 text-sm text-gray-600">
               No expense records.

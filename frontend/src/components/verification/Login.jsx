@@ -18,7 +18,7 @@ function Login() {
       const { email, password } = userCred;
       const checkUser = async (email, password) => {
         await axios
-          .post(`https://iet-backend.onrender.com/api/user/login`, {
+          .post(`${import.meta.env.VITE_BACKEND_API}/api/user/login`, {
             email,
             password,
           })
@@ -53,7 +53,7 @@ function Login() {
       <div className="flex flex-col lg:flex-1 lg:flex-row justify-center items-center  lg:items-start h-fit w-[90vw] sm:w-[80vw] lg:h-[68vh] lg:w-[55vw] gap-0 p-[3px] bg-gray-50 rounded-lg shadow-sm">
         <div className="hidden sm:block lg:flex-1 rounded-l-md sm:h-[300px] sm:w-full  lg:h-full bg-gray-200">
           <img
-            className="object-contain w-full h-full"
+            className="object-contain w-full h-full lg:h-auto"
             src={loginImage}
             alt="login image"
           />

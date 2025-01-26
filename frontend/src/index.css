@@ -5,66 +5,31 @@
 @font-face {
   font-family: "Light";
   src: local("Satoshi-Light"),
-    url("./assets/fonts/Satoshi/Satoshi-Light.ttf") format("opentype");
-  /* font-family: "Light";
-  src: local("AfacadFlux-Light"),
-    url("./assets/fonts/Urbanist/Urbanist-Light.ttf") format("truetype"); */
-  /* src: local("AfacadFlux-Light"),
-    url("./assets/fonts/AfacadFlux/AfacadFlux-Light.ttf") format("truetype"); */
-  /* src: local("Figtree-Light"),
-    url("./assets/fonts/Figtree/Figtree-Light.ttf") format("truetype"); */
+    url("/fonts/Satoshi/Satoshi-Light.ttf") format("opentype");
 }
 
 @font-face {
   font-family: "Regular";
   src: local("Satoshi-Regular"),
-    url("./assets/fonts/Satoshi/Satoshi-Regular.ttf") format("opentype");
-  /* font-family: "Regular";
-  src: local("Urbanist-Regular"),
-    url("./assets/fonts/Urbanist/Urbanist-Regular.ttf") format("truetype"); */
-  /* src: local("AfacadFlux-Regular"),
-    url("./assets/fonts/AfacadFlux/AfacadFlux-Regular.ttf") format("truetype"); */
-  /* src: local("Figtree-Regular"),
-    url("./assets/fonts/Figtree/Figtree-Regular.ttf") format("truetype"); */
+    url("/fonts/Satoshi/Satoshi-Regular.ttf") format("opentype");
 }
 
 @font-face {
   font-family: "Medium";
   src: local("Satoshi-Medium"),
-    url("./assets/fonts/Satoshi/Satoshi-Medium.ttf") format("opentype");
-  /* font-family: "Medium";
-  src: local("Urbanist-Medium"),
-    url("./assets/fonts/Urbanist/Urbanist-Medium.ttf") format("truetype"); */
-  /* src: local("AfacadFlux-Medium"),
-    url("./assets/fonts/AfacadFlux/AfacadFlux-Medium.ttf") format("truetype"); */
-  /* src: local("Figtree-Medium"),
-    url("./assets/fonts/Figtree/Figtree-Medium.ttf") format("truetype"); */
+    url("/fonts/Satoshi/Satoshi-Medium.ttf") format("opentype");
 }
 
 @font-face {
   font-family: "SemiBold";
   src: local("Satoshi-Black"),
-    url("./assets/fonts/Satoshi/Satoshi-Black.otf") format("opentype");
-  /* font-family: "SemiBold";
-  src: local("Urbanist-SemiBold"),
-    url("./assets/fonts/Urbanist/Urbanist-SemiBold.ttf") format("truetype"); */
-  /* src: local("AfacadFlux-SemiBold"),
-    url("./assets/fonts/AfacadFlux/AfacadFlux-SemiBold.ttf") format("truetype"); */
-  /* src: local("Figtree-SemiBold"),
-    url("./assets/fonts/Figtree/Figtree-SemiBold.ttf") format("truetype"); */
+    url("/fonts/Satoshi/Satoshi-Black.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Bold";
   src: local("Satoshi-Bold"),
-    url("./assets/fonts/Satoshi/Satoshi-Bold.ttf") format("opentype");
-  /* font-family: "Bold";
-  src: local("Urbanist-Bold"),
-    url("./assets/fonts/Urbanist/Urbanist-Bold.ttf") format("truetype"); */
-  /* src: local("AfacadFlux-Bold"),
-    url("./assets/fonts/AfacadFlux/AfacadFlux-Bold.ttf") format("truetype"); */
-  /* src: local("Figtree-Bold"),
-    url("./assets/fonts/Figtree/Figtree-Bold.ttf") format("truetype"); */
+    url("/fonts/Satoshi/Satoshi-Bold.ttf") format("opentype");
 }
 
 /* html {
@@ -98,8 +63,6 @@
   /* colors */
   --color-brand: #4c20aa;
   --color-brand-bg: #ece3ff;
-  /* --color-brand: #782b42;
-  --color-brand-bg: #f3dee4; */
   --color-secondary: #f6aa09;
   --color-secondary-bg: #fdeac1;
   --color-tertiary: #f6ebd0;

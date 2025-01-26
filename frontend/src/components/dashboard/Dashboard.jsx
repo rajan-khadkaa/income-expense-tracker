@@ -57,7 +57,7 @@ function Dashboard() {
 
   const getData = async () => {
     await axios
-      .get("https://iet-backend.onrender.com/api/income", {
+      .get(`${import.meta.env.VITE_BACKEND_API}/api/income`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((inc) => {
@@ -77,7 +77,7 @@ function Dashboard() {
 
   async function getTotalIncome() {
     axios
-      .get(`https://iet-backend.onrender.com/api/dashboard/totalIncome`, {
+      .get(`${import.meta.env.VITE_BACKEND_API}/api/dashboard/totalIncome`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -88,7 +88,7 @@ function Dashboard() {
   }
   async function getTotalExpense() {
     axios
-      .get(`https://iet-backend.onrender.com/api/dashboard/totalExpense`, {
+      .get(`${import.meta.env.VITE_BACKEND_API}/api/dashboard/totalExpense`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -99,9 +99,12 @@ function Dashboard() {
   }
   async function getLastMonthSaving() {
     axios
-      .get(`https://iet-backend.onrender.com/api/dashboard/lastMonthSaving`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        `${import.meta.env.VITE_BACKEND_API}/api/dashboard/lastMonthSaving`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => {
         // console.log(res.data);
         setLastMonthSaving(res.data);
@@ -111,7 +114,7 @@ function Dashboard() {
   async function getRecentTransactions() {
     axios
       .get(
-        `https://iet-backend.onrender.com/api/dashboard/recentTransactions`,
+        `${import.meta.env.VITE_BACKEND_API}/api/dashboard/recentTransactions`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -126,7 +129,9 @@ function Dashboard() {
   async function getLastFourMonthTransaction() {
     axios
       .get(
-        `https://iet-backend.onrender.com/api/dashboard/lastFourMonthTransaction`,
+        `${
+          import.meta.env.VITE_BACKEND_API
+        }/api/dashboard/lastFourMonthTransaction`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

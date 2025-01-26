@@ -16,7 +16,10 @@ function Register() {
     if (userInfo.name && userInfo.email && userInfo.password) {
       const registerUser = async (userInfo) => {
         await axios
-          .post(`https://iet-backend.onrender.com/api/user/register`, userInfo)
+          .post(
+            `${import.meta.env.VITE_BACKEND_API}/api/user/register`,
+            userInfo
+          )
           .then((res) => {
             // console.log(res);
             navigate("/");
