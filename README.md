@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-Check out the live demo [here](https://income-expense-haql.onrender.com).
+Check out the live demo [here](https://income-expense-mern-app.vercel.app).
 
 ## Prerequisites
 
