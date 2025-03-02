@@ -16,6 +16,7 @@ function Expense() {
   const [expenseId, setExpenseId] = useState(null);
   const [expanded, setExpanded] = useState(false);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -81,6 +82,7 @@ function Expense() {
   };
 
   const handleSubmit = async (event) => {
+    setLoading(true);
     event.preventDefault();
     if (
       !formData.title ||
@@ -129,6 +131,7 @@ function Expense() {
       setExpenseId(null);
     }
     getData();
+    setLoading(false);
   };
 
   async function handleDelete(id) {
@@ -251,13 +254,16 @@ function Expense() {
           ></textarea>
           <div className="flex flex-row w-full flex-wrap gap-3 font-primaryMedium text-sm">
             <button
+              disabled={loading}
               type="submit"
-              className="bg-green-800 text-white  w-full flex-1 py-2  rounded-md"
+              className={`${
+                loading ? "bg-gray-400" : "bg-green-800"
+              } text-white  w-full flex-1 py-2  rounded-md`}
             >
-              Submit
+              {loading ? "Adding..." : "Add Expense"}
             </button>
             <button
-              className="bg-red-700 text-white  w-full flex-1 py-2   rounded-md"
+              className="bg-red-800 text-white  w-full flex-1 py-2   rounded-md"
               onClick={handleReset}
             >
               Clear

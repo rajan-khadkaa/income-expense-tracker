@@ -8,6 +8,7 @@ import Login from "./components/verification/Login.jsx";
 import Register from "./components/verification/Register.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import axios from "axios";
+import Start from "./components/verification/Start.jsx";
 
 axios.defaults.withCredentials = true;
 
@@ -16,8 +17,9 @@ function App() {
     <Router>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Start />} />
         <Route
           path="/dashboard"
           element={

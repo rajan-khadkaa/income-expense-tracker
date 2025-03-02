@@ -11,9 +11,11 @@ function Login() {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
 
     if (userCred.email && userCred.password) {
       const { email, password } = userCred;
@@ -47,8 +49,10 @@ function Login() {
           });
       };
       checkUser(email, password);
+      setLoading(false);
     } else {
       alert("Please insert both email and password.");
+      setLoading(false);
     }
   }
 
@@ -97,10 +101,13 @@ function Login() {
                   }
                 />
                 <button
-                  className="text-white bg-indigo-600 rounded-sm text-sm font-primaryMedium p-2 mt-2"
+                  disabled={loading}
+                  className={`${
+                    loading ? "bg-gray-400" : "bg-indigo-600"
+                  } text-white  rounded-sm text-sm font-primaryMedium p-2 mt-2`}
                   type="submit"
                 >
-                  Submit
+                  {loading ? "Logging in..." : "Login"}
                 </button>
               </form>
             </div>
@@ -110,7 +117,7 @@ function Login() {
               </p>
             </div>
             <p className="text-sm text-center">
-              Don't have an account? Register{" "}
+              Don't have an account? Sign up{" "}
               <Link className="text-indigo-600 underline" to="/register">
                 here
               </Link>{" "}

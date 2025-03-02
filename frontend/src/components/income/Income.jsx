@@ -16,6 +16,7 @@ function Income() {
   const [incomeId, setIncomeId] = useState(null);
   const [expanded, setExpanded] = useState("");
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -81,6 +82,7 @@ function Income() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     if (
       !formData.title ||
       !formData.amount ||
@@ -142,7 +144,7 @@ function Income() {
       setEditMode(false);
       setIncomeId(null);
     }
-
+    setLoading(false);
     getData();
   };
 
@@ -269,10 +271,13 @@ function Income() {
           ></textarea>
           <div className="flex flex-row w-full flex-wrap gap-3 font-primaryMedium text-sm">
             <button
+              disabled={loading}
               type="submit"
-              className="bg-green-800 text-white  w-full flex-1 py-2  rounded-md"
+              className={`${
+                loading ? "bg-gray-400" : "bg-green-800"
+              } text-white  w-full flex-1 py-2  rounded-md`}
             >
-              Submit
+              {loading ? "Adding..." : "Add Income"}
             </button>
             <button
               className="bg-red-800 text-white  w-full flex-1 py-2   rounded-md"

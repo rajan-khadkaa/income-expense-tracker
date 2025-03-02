@@ -10,9 +10,11 @@ function Register() {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     if (userInfo.name && userInfo.email && userInfo.password) {
       const registerUser = async (userInfo) => {
         await axios
@@ -22,13 +24,15 @@ function Register() {
           )
           .then((res) => {
             // console.log(res);
-            navigate("/");
+            navigate("/login");
           })
           .catch((error) => console.log(error));
       };
       registerUser(userInfo);
+      setLoading(false);
     } else {
       alert("Please fill all the fields.");
+      setLoading(false);
     }
   }
   return (
@@ -50,7 +54,7 @@ function Register() {
 
           <div className="w-full flex flex-col h-full  justify-between gap-2">
             <h3 className=" font-primaryRegular text-sm text-gray-400">
-              It only takes a few seconds to register.
+              It only takes a few seconds to sign up.
             </h3>
             <div className="w-full">
               <form
@@ -85,10 +89,13 @@ function Register() {
                   }
                 />
                 <button
-                  className="text-white bg-indigo-600 rounded-sm text-sm font-primaryMedium p-2 mt-2"
+                  disabled={loading}
+                  className={`${
+                    loading ? "bg-gray-400" : "bg-indigo-600"
+                  } text-white  rounded-sm text-sm font-primaryMedium p-2 mt-2`}
                   type="submit"
                 >
-                  Register
+                  {loading ? "Signing up..." : "Sign up"}
                 </button>
               </form>
             </div>
@@ -99,7 +106,7 @@ function Register() {
             </div>
             <p className="text-sm text-center">
               Already have an account? Login{" "}
-              <Link className="text-indigo-600 underline" to="/">
+              <Link className="text-indigo-600 underline" to="/login">
                 here
               </Link>{" "}
             </p>
