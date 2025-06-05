@@ -131,9 +131,15 @@
 
 body {
   background-color: var(--background-whole);
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* max-width: 1400px; */
+
+  border: 1px solid red;
 }
 
 .dark {

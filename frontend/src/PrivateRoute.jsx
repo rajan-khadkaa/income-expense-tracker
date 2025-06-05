@@ -11,7 +11,7 @@ function PrivateRoute({ children }) {
   }
 
   return (
-    <div className="flex flex-wrap flex-1w-full">
+    <div className="flex flex-wrap flex-1 w-full">
       <div className="dashboard-container h-[93vh] flex flex-col justify-start align-middle fixed w-20 md:w-52 lg:w-56">
         <Sidebar />
       </div>
