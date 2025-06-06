@@ -29,7 +29,7 @@
 @font-face {
   font-family: "Bold";
   src: local("Satoshi-Bold"),
-    url("/fonts/Satoshi/Satoshi-Bold.ttf") format("opentype");
+    url("/fonts/Satoshi/Satoshi-Bold.otf") format("opentype");
 }
 
 /* html {
@@ -41,14 +41,14 @@
 @layer base {
   html {
     @apply font-sans;
-    font-size: 12px;
+    font-size: 16px;
     margin: 0;
     padding: 0;
   }
 
   @screen md {
     html {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 
@@ -129,17 +129,18 @@
   /* --box-shadow-lg: 4px 4px 4px 4px #191919; */
 }
 
+html {
+  display: flex;
+  justify-content: center;
+}
+
 body {
   background-color: var(--background-whole);
   /* box-sizing: border-box; */
   margin: 0;
   /* padding: 0; */
-  display: flex;
-  justify-content: center;
   width: 100%;
-  /* max-width: 1400px; */
-
-  border: 1px solid red;
+  max-width: 1400px;
 }
 
 .dark {
@@ -157,8 +158,9 @@ body {
 }
 
 .content-container {
-  margin: 1rem;
-  height: 93vh;
+  /* margin: 1rem;
+  height: 93vh; */
+  height: 100%;
   box-sizing: border-box;
   /* padding: var(--padding-card-md) var(--padding-card-sm); */
   background-color: var(--background);

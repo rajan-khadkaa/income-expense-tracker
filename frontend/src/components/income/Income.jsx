@@ -209,7 +209,7 @@ function Income() {
   };
 
   return (
-    <div className="content-container p-3 sm:p-6 flex flex-1 flex-wrap flex-col lg:flex-row">
+    <div className="content-container p-3 sm:p-6 flex w-full  overflow-y-auto flex-col lg:flex-row">
       <div className=" flex flex-col gap-3 mb-0 h-fit flex-1 lg:w-[45%]">
         <h3 className="mb-4 font-primaryBold text-xl w-full text-center bg-green-100 text-green-600 py-4 rounded">
           Total Income: Rs. {totalIncome}
@@ -289,7 +289,7 @@ function Income() {
         </form>
       </div>
       <hr className="my-6 lg:my-0 lg:mx-8 lg:border-[1px] lg:h-full" />
-      <div className=" flex flex-col gap-2 flex-1 h-full overflow-hidden">
+      <div className=" flex flex-col gap-2 flex-1 min-h-[500px] md:min-h-0 md:h-full overflow-hidden">
         <h3 className="mb-4 text-center font-primaryBold text-xl  bg-gray-100 text-gray-600 py-4 rounded">
           Income History
         </h3>

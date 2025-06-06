@@ -58,17 +58,17 @@ const threeStepsData = {
   },
   steps: [
     {
-      title: "Add your transactions",
+      title: "Add your records",
       description:
         "Record income and expenses in seconds. Simply enter the amount, choose a category, and let Spendly handle the rest.",
     },
     {
-      title: "Deliver instant answers",
+      title: "View transactions instantly",
       description:
         "Instantly see how much you've earned, spent, and saved. Visual breakdowns help you understand your financial habits.",
     },
     {
-      title: "Manage with reports",
+      title: "Get reports and insights",
       description:
         "Whether you're saving for something big or just want to cut down on unnecessary spending, Spendly keeps you on track.",
     },

@@ -57,24 +57,24 @@ function Login() {
   }
 
   return (
-    <div className="flex flex-wrap justify-center gap-8 items-center m-auto h-screen w-full lg:w-fit">
-      <div className="flex flex-col lg:flex-1 lg:flex-row justify-center items-center  lg:items-start h-fit w-[90vw] sm:w-[80vw] lg:h-[68vh] lg:w-[55vw] gap-0 p-[3px] bg-gray-50 rounded-lg shadow-sm">
-        <div className="hidden sm:block lg:flex-1 rounded-l-md sm:h-[300px] sm:w-full  lg:h-full bg-gray-200">
+    <div className="flex justify-center items-center box-border m-0 p-0  h-screen w-full">
+      <div className="flex w-[90%] sm:w-[65%] md:w-[29rem] lg:w-[50rem] flex-col lg:flex-row justify-center items-center md:gap-4 lg:gap-0 bg-gray-50 rounded-lg shadow-sm">
+        <div className="hidden rounded-tl-[0.4rem] md:rounded-tr-[0.4rem] lg:rounded-tr-none lg:rounded-bl-[0.4rem] md:block md:w-[28rem] lg:w-[23rem] md:mt-2 lg:mt-0 lg:ml-1 bg-gray-200">
           <img
             className="object-contain w-full h-full lg:h-auto"
             src={loginImage}
             alt="login image"
           />
         </div>
-        <div className="flex flex-1 flex-col justify-start h-full w-full items-center p-7 gap-10 bg-gray-50 rounded-r-md">
+        <div className="flex flex-1 flex-col justify-start w-full items-center px-5 py-7 sm:px-7 sm:py-9 lg:p-7 gap-10 bg-gray-50 rounded-lg">
           <img
             className="w-[150px] h-auto"
             src="./name-logo.svg"
             alt="logo image"
           />
 
-          <div className="w-full flex flex-col h-full  justify-between gap-2">
-            <h3 className=" font-primaryRegular text-sm text-gray-400">
+          <div className="w-full flex flex-col h-full md:mb-2 lg:mb-0 justify-between gap-3">
+            <h3 className=" font-primaryRegular text-sm text-gray-400 mb-4">
               Welcome back. Please login to continue.
             </h3>
             <div className="w-full">

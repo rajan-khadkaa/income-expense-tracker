@@ -173,11 +173,11 @@ function Dashboard() {
   };
 
   return (
-    <div className="content-container flex flex-1 flex-col gap-3 p-3 sm:p-6 overflow-hidden">
-      <h4 className="text-sm font-primaryMedium text-gray-600 ml-1 mb-1">
+    <div className="content-container md:mt-0 flex flex-1 flex-col gap-3 p-3 sm:p-6 overflow-y-auto md:overflow-hidden">
+      <h4 className="text-sm border-2 font-primaryMedium text-gray-600 ml-10 mt-2 md:ml-1 mb-1">
         Welcome back!
       </h4>
-      <div className=" flex w-full flex-wrap gap-2">
+      <div className=" grid grid-cols-2 lg:grid-cols-4 w-full  gap-2">
         <div className="flex flex-1 p-3 rounded-md gap-4 bg-white shadow-md shadow-gray-100">
           <span className="bg-green-100 text-green-600 p-3 rounded-full h-fit">
             <AnalyticsUpIcon size={20} />

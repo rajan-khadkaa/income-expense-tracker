@@ -95,8 +95,8 @@ function Bin() {
   };
 
   return (
-    <div className="content-container  p-3 sm:p-6 flex flex-1 flex-wrap flex-col lg:flex-row">
-      <div className=" flex flex-col gap-1 h-full flex-1">
+    <div className="content-container p-3 sm:p-6 flex w-full  overflow-y-auto flex-col lg:flex-row">
+      <div className=" flex flex-col h-fit gap-1 lg:h-full lg:flex-1">
         <h3 className="font-primaryBold text-lg w-full text-center text-gray-600 py-4 rounded">
           Deleted Income Records
           {/* {console.log(binData[1].parent)} */}
@@ -110,7 +110,7 @@ function Bin() {
             onChange={(event) => setSearchInc(event.target.value.toLowerCase())}
           />
         </div>
-        <ul className="flex flex-col p-1 gap-2 h-fit overflow-y-scroll scroll-smooth scrolling-auto">
+        <ul className="flex flex-col p-1 gap-2 min-h-0 max-h-[300px] md:max-h-[400px]  lg:max-h-full overflow-y-auto scroll-smooth scrolling-auto">
           {filteredIncome.length > 0 ? (
             filteredIncome
               .filter((item) =>
@@ -181,7 +181,7 @@ function Bin() {
         </ul>
       </div>
       <hr className="my-6 lg:my-0 lg:mx-8 lg:border-[1px] lg:h-full" />
-      <div className=" flex flex-col gap-1 flex-1 h-full overflow-hidden">
+      <div className=" flex flex-col gap-1 lg:h-full lg:flex-1">
         <h3 className="font-primaryBold text-lg w-full text-center text-gray-600 py-4 rounded">
           Deleted Expense Records
         </h3>
@@ -194,7 +194,7 @@ function Bin() {
             onChange={(event) => setSearchExp(event.target.value.toLowerCase())}
           />
         </div>
-        <ul className="flex flex-col p-1 gap-2 h-fit overflow-y-scroll scroll-smooth scrolling-auto">
+        <ul className="flex flex-col p-1 gap-2 min-h-0 max-h-[300px] md:max-h-[400px] lg:max-h-full overflow-y-auto scroll-smooth scrolling-auto">
           {filteredExpense.length > 0 ? (
             filteredExpense
               .filter((item) =>

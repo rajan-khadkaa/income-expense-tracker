@@ -36,24 +36,24 @@ function Register() {
     }
   }
   return (
-    <div className="flex flex-wrap justify-center gap-8 items-center m-auto h-screen w-full lg:w-fit">
-      <div className="flex flex-col lg:flex-1 lg:flex-row justify-center items-center  lg:items-start h-fit w-[90vw] sm:w-[80vw] lg:h-[68vh] lg:w-[55vw] gap-0 p-[3px] bg-gray-50 rounded-lg shadow-sm">
-        <div className="hidden sm:block lg:flex-1 rounded-l-md sm:h-[300px] sm:w-full  lg:h-full bg-gray-200">
+    <div className="flex justify-center items-center box-border m-0 p-0 h-screen w-full">
+      <div className="flex w-[90%] sm:w-[65%] md:w-fit lg:w-[65%] flex-col lg:flex-row justify-center items-center lg:items-start md:gap-4 lg:gap-0 p-[3px] bg-gray-50 rounded-lg shadow-sm">
+        <div className="hidden rounded-tl-[0.4rem] md:rounded-tr-[0.4rem] lg:rounded-tr-none lg:rounded-bl-[0.4rem] md:block md:w-[30rem] lg:w-[420px] bg-gray-200">
           <img
-            className="object-contain w-full h-full"
+            className="object-contain w-full h-full lg:h-auto"
             src={registerImage}
             alt="register image"
           />
         </div>
-        <div className="flex flex-1 flex-col justify-start h-full w-full items-center p-7 gap-10 bg-gray-50 rounded-r-md">
+        <div className="flex flex-1 flex-col justify-start w-full items-center p-5 sm:p-7 lg:p-7 gap-10 bg-gray-50 rounded-r-md">
           <img
             className="w-[150px] h-auto"
             src="./name-logo.svg"
             alt="logo image"
           />
 
-          <div className="w-full flex flex-col h-full  justify-between gap-2">
-            <h3 className=" font-primaryRegular text-sm text-gray-400">
+          <div className="w-full flex flex-col h-full justify-between gap-3">
+            <h3 className="font-primaryRegular text-sm text-gray-400 mb-4">
               It only takes a few seconds to sign up.
             </h3>
             <div className="w-full">
@@ -92,7 +92,7 @@ function Register() {
                   disabled={loading}
                   className={`${
                     loading ? "bg-gray-400" : "bg-indigo-600"
-                  } text-white  rounded-sm text-sm font-primaryMedium p-2 mt-2`}
+                  } text-white rounded-sm text-sm font-primaryMedium p-2 mt-2`}
                   type="submit"
                 >
                   {loading ? "Signing up..." : "Sign up"}

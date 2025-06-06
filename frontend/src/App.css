@@ -4,8 +4,8 @@
 } */
 
 .dashboard-container {
-  margin: 1rem;
-  padding: var(--padding-card-md) var(--padding-card-sm);
+  /* margin: 1rem; */
+  /* padding: var(--padding-card-md) var(--padding-card-sm); */
   background-color: var(--background);
   color: var(--surface);
   border: var(--border-lg) solid var(--border);

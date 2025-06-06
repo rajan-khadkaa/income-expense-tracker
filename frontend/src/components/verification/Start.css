@@ -1,25 +1,8 @@
-.container {
-  display: grid;
-  grid-template-columns: repeat(14, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-  gap: 0.7px;
-  margin: 0;
-  padding: 0;
-  /* border: 1px solid red; */
-  /* background-color: #0a0a0a; */
-  /* background-color: #f6f6f6; */
-  background-color: #f1f1f1;
-  /* background-color: red; */
-}
-
 .animateCard {
   /* background: radial-gradient(ellipse, rgba(255, 255, 255, 0.5) 10%, #0d0d0d, #0d0d0d, #0d0d0d); */
   background: radial-gradient(
     ellipse,
-    rgba(91, 33, 182, 0.5) 10%,
+    rgba(91, 33, 182, 0.3) 50%,
     #f1f1f1,
     #f1f1f1,
     #f1f1f1
@@ -28,6 +11,7 @@
   animation: movement 10s infinite linear;
   left: 50%;
   right: 50%;
+  border: 2px solid yellow;
   transform: translate(-50%, -50%);
   /* background-color: red; */
 }
