@@ -5,19 +5,19 @@
 @font-face {
   font-family: "Light";
   src: local("Satoshi-Light"),
-    url("/fonts/Satoshi/Satoshi-Light.ttf") format("opentype");
+    url("/fonts/Satoshi/Satoshi-Light.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Regular";
   src: local("Satoshi-Regular"),
-    url("/fonts/Satoshi/Satoshi-Regular.ttf") format("opentype");
+    url("/fonts/Satoshi/Satoshi-Regular.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Medium";
   src: local("Satoshi-Medium"),
-    url("/fonts/Satoshi/Satoshi-Medium.ttf") format("opentype");
+    url("/fonts/Satoshi/Satoshi-Medium.otf") format("opentype");
 }
 
 @font-face {
