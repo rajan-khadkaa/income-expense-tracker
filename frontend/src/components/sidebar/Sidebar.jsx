@@ -86,7 +86,8 @@ function Sidebar() {
         <div className="h-fit w-full font-primaryRegular text-base">
           <hr />
           <button
-            className="logoutBtn w-full flex text-white align-middle mt-4 py-[5.8px] rounded-md font-primaryMedium text-sm justify-between px-3"
+            // className="border-red-200 border-[1.5px] text-red-500 hover:bg-red-800 hover:border-red-800 hover:text-white w-full flex align-middle mt-4 py-4 md:py-2 rounded-md font-primaryMedium text-sm justify-between px-3"
+            className="bg-red-100 text-red-700 hover:bg-red-800 hover:text-white w-full flex align-middle mt-4 py-4 md:py-2 rounded-md font-primaryMedium text-sm justify-between px-4 md:px-3"
             onClick={handleLogout}
           >
             <p className="w-0 m-0">Logout</p>

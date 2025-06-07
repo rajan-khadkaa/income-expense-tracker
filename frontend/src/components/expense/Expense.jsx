@@ -22,7 +22,7 @@ function Expense() {
     title: "",
     desc: "",
     amount: "",
-    date: "",
+    date: new Date().toISOString().split("T")[0],
   });
 
   useEffect(() => {
@@ -195,7 +195,7 @@ function Expense() {
   return (
     <div className="content-container p-3 sm:p-6 flex w-full  overflow-y-auto flex-col lg:flex-row">
       <div className=" flex flex-col gap-3 mb-0 h-fit flex-1 lg:w-[45%]">
-        <h3 className="mb-4 font-primaryBold text-xl w-full text-center bg-red-100 text-red-700 py-4 rounded">
+        <h3 className="mb-4 font-primaryBold text-xl w-full text-center bg-red-50 text-red-700 py-4 rounded">
           Total Expense: Rs. {totalExpense}
         </h3>
         <hr className=" flex align-middle w-full" />
@@ -210,8 +210,10 @@ function Expense() {
             name="title"
             value={formData.title}
             onChange={handleChange}
-            className={` px-2 py-2 rounded-md bg-gray-100 ${
-              formData.title ? "text-neutral-800" : "text-gray-400"
+            className={` px-3 py-3 md:py-2 w-full rounded-md bg-white md:bg-gray-100 ${
+              formData.title
+                ? "text-neutral-800"
+                : "text-gray-400 md:text-gray-400"
             }`}
           >
             <option value="" disabled>
@@ -229,8 +231,10 @@ function Expense() {
             value={formData.amount}
             placeholder="Enter the amount"
             onChange={handleChange}
-            className={`px-2 py-2 rounded-md bg-gray-100 ${
-              formData.amount ? "text-neutral-800" : "text-gray-400"
+            className={`px-3 py-3 md:py-2 rounded-md bg-white md:bg-gray-100 ${
+              formData.amount
+                ? "text-neutral-800"
+                : "text-gray-300 md:text-gray-400"
             }`}
           />
           <input
@@ -239,8 +243,10 @@ function Expense() {
             value={formData.date}
             placeholder="Pick the date"
             onChange={handleChange}
-            className={`px-2 py-2 rounded-md bg-gray-100 ${
-              formData.date ? "text-neutral-800" : "text-gray-400"
+            className={`px-3 py-3 md:py-2 w-full rounded-md bg-white md:bg-gray-100 ${
+              formData.date
+                ? "text-neutral-800"
+                : "text-gray-300 md:text-gray-400"
             }`}
           />
           <textarea
@@ -248,8 +254,10 @@ function Expense() {
             name="desc"
             placeholder="Enter description"
             onChange={handleChange}
-            className={`px-2 py-2 rounded-md bg-gray-100 max-h-16 min-h-16 ${
-              formData.desc ? "text-neutral-800" : "text-gray-400"
+            className={`px-3 py-3 md:py-2 rounded-md bg-white md:bg-gray-100 h-24 ${
+              formData.desc
+                ? "text-neutral-800"
+                : "text-gray-300 md:text-gray-400"
             }`}
           ></textarea>
           <div className="flex flex-row w-full flex-wrap gap-3 font-primaryMedium text-sm">
@@ -257,29 +265,32 @@ function Expense() {
               disabled={loading}
               type="submit"
               className={`${
-                loading ? "bg-gray-400" : "bg-green-800"
-              } text-white  w-full flex-1 py-2  rounded-md`}
+                // loading ? "bg-gray-400" : "bg-[#602cd1] hover:bg-[#411999]"
+                loading ? "bg-gray-400" : "bg-[#4a1ab2] hover:bg-[#7242db]"
+              } text-white  w-full flex-1 py-4 md:py-[10px]  rounded-md`}
             >
               {loading ? "Adding..." : "Add Expense"}
             </button>
-            <button
-              className="bg-red-800 text-white  w-full flex-1 py-2   rounded-md"
+            {/* <button
+              className="border-red-200 border-[1.5px] text-red-500 hover:bg-red-800 hover:border-red-800 hover:text-white   w-full flex-1 py-4 md:py-2   rounded-md"
+              // className="border-red-200 border-[1.5px] text-red-500 hover:bg-red-800 hover:border-red-800 hover:text-white   w-full flex-1 py-4 md:py-2   rounded-md"
+              // className="bg-red-100 text-red-700 hover:bg-red-200  w-full flex-1 py-4 md:py-2   rounded-md"
               onClick={handleReset}
             >
               Clear
-            </button>
+            </button> */}
           </div>
         </form>
       </div>
       <hr className="my-6 lg:my-0 lg:mx-8 lg:border-[1px] lg:h-full" />
       <div className=" flex flex-col gap-2 flex-1 min-h-[500px] md:min-h-0 md:h-full overflow-hidden">
-        <h3 className="mb-4 text-center font-primaryBold text-xl  bg-gray-100 text-gray-600 py-4 rounded">
+        <h3 className="mb-4 text-center font-primaryBold text-xl bg-gray-100 text-gray-600 py-4 rounded">
           Expense History
         </h3>
         <div className="px-1 w-full">
           <input
             value={search}
-            className="px-3 w-full text-gray-600 text-sm py-2 m-0 rounded-md placeholder:text-xs placeholder:text-gray-400"
+            className="px-3 w-full text-neutral-800 text-sm py-3 md:py-2 m-0 rounded-md placeholder:text-sm placeholder:text-gray-400"
             type="search"
             placeholder="Search here"
             onChange={(event) => setSearch(event.target.value.toLowerCase())}

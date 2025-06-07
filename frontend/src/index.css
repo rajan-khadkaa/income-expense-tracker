@@ -59,6 +59,15 @@
   }
 }
 
+input,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  min-height: 42px;
+  padding: 0.5rem;
+}
+
 :root {
   /* colors */
   --color-brand: #4c20aa;

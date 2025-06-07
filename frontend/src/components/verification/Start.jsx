@@ -44,13 +44,13 @@ function Start() {
           <div className="flex gap-4">
             <button
               onClick={() => navigate("/register")}
-              className="font-primaryMedium text-sm hover:text-violet-800"
+              className="font-primaryMedium text-sm hover:text-violet-[#4a1ab2]"
             >
               Register
             </button>
             <button
               onClick={() => navigate("/login")}
-              className="font-primaryMedium group flex gap-2 items-center relative text-sm px-6 py-2 hover:bg-violet-600 transition-colors duration-300 bg-violet-800 text-white rounded-full"
+              className="font-primaryMedium group flex gap-2 items-center relative text-sm px-6 py-2 bg-[#4a1ab2] hover:bg-[#7242db] transition-colors duration-300 text-white rounded-full"
             >
               <span className="mr-4 md:mr-6 lg:mr-5">Login</span>
               {/* <ArrowRight02Icon /> */}
@@ -58,26 +58,28 @@ function Start() {
             </button>
           </div>
         </nav>
-        <div className="w-full h-fit flex  flex-col gap-16 items-center">
-          <section
-            className="w-full box-border relative"
-            style={{ height: height }}
-          >
-            <div className=" h-fit min-h-[36rem] md:min-h-[40rem] lg:min-h-[27rem] w-full grid grid-cols-[repeat(6,1fr)] grid-rows-[repeat(12,1fr)] md:grid-cols-[repeat(10,1fr)] md:grid-rows-[repeat(10,1fr)] lg:grid-cols-[repeat(15,1fr)] lg:grid-rows-[repeat(7,1fr)] box-border relative overflow-hidden gap-[0.7px] m-0 p-0 bg-[#f1f1f1] -mt-10">
+        <div className="w-full relative h-fit flex  flex-col gap-16 items-center">
+          <div className="absolute w-full">
+            <div className=" gap-[0.7px] lg:gap-[1px] h-fit min-h-[36rem] md:min-h-[40rem] lg:min-h-[24rem] w-full grid grid-cols-[repeat(6,1fr)] grid-rows-[repeat(12,1fr)] md:grid-cols-[repeat(10,1fr)] md:grid-rows-[repeat(10,1fr)] lg:grid-cols-[repeat(15,1fr)] lg:grid-rows-[repeat(7,1fr)] box-border relative overflow-hidden m-0 p-0 bg-[#f1f1f1] -mt-10">
               <div className="animateCard w-full h-[300px]"></div>
               {gridItems.map((_, index) => (
                 <div key={index} className="gridCards "></div>
               ))}
             </div>
+          </div>
+          <section
+            className="w-full box-border mt-20 z-10"
+            // style={{ height: height }}
+          >
             {/* <div className="border-2 border-black"> */}
             <div
-              ref={childRef}
-              className="absolute pt-16 md:pt-20 lg:pt-28 overflow-visible top-0 flex flex-col lg:flex-row gap-9 md:gap-12 lg:gap-10  justify-between w-full items-center z-10"
+              // ref={childRef}
+              className="flex flex-col lg:flex-row gap-9 md:gap-12 lg:gap-10  justify-between w-full items-center"
             >
               {/* <div className="absolute overflow-visible top-[55%] flex justify-center w-full items-center -translate-y-1/2 z-10"> */}
               <div className="w-full lg:w-1/2 flex flex-col">
                 {/* <div className="w-[480px] flex flex-col items-center text-center"> */}
-                <h1 className="text-4xl lg:text-5xl text-violet-800 font-primarySemiBold leading-tight">
+                <h1 className="text-4xl lg:text-5xl text-[#4a1ab2] font-primarySemiBold leading-tight">
                   Figure Out Where Your Money Goes
                 </h1>
                 <p className="text-gray-400 mt-5 text-base">
@@ -87,7 +89,7 @@ function Start() {
                 </p>
                 <button
                   onClick={() => navigate("/login")}
-                  className="mt-8 font-primaryMedium group flex gap-2 items-center w-fit relative text-sm px-6 py-2 hover:bg-violet-600 transition-colors duration-300 bg-violet-800 text-white rounded-full"
+                  className="mt-8 font-primaryMedium group flex gap-2 items-center w-fit relative text-sm px-6 py-2 bg-[#4a1ab2] hover:bg-[#7242db] transition-colors duration-300 text-white rounded-full"
                 >
                   <span className="mr-6 md:mr-6 lg:mr-5">Start Now</span>
                   <CircleArrowUpRightIcon className="right-[6px] md:right-1 lg:right-2 absolute group-hover:rotate-45 transition-transform duration-300" />
@@ -103,7 +105,7 @@ function Start() {
             </div>
             {/* </div> */}
           </section>
-          <section className="mt-0 w-full flex justify-center">
+          <section className="mt-0 z-10 w-full flex justify-center">
             <div className="w-full flex flex-col items-center">
               <p className="text-sm text-center mb-4 md:mb-2 lg:mb-10 px-6 py-2 rounded-full w-fit bg-white font-primaryMedium text-gray-800">
                 Features
@@ -113,7 +115,7 @@ function Start() {
                   <div className="p-4 bg-violet-200 text-violet-800 rounded-full size-fit">
                     <LaurelWreathFirst01Icon />
                   </div>
-                  <h2 className="text-3xl mt-4 text-gray-900 font-primaryBold">
+                  <h2 className="text-3xl mt-4 text-[#4a1ab2] font-primaryBold">
                     Smart tools to manage your money
                   </h2>
                   <p className="text-gray-400 mt-4">
@@ -150,7 +152,7 @@ function Start() {
               </p>
               <div className="flex flex-col gap-10 justify-between w-full">
                 <div className=" w-full flex flex-col items-start">
-                  <h2 className="text-3xl lg:max-w-[500px] text-gray-900 font-primaryBold">
+                  <h2 className="text-3xl lg:max-w-[500px] text-[#4a1ab2] font-primaryBold">
                     {threeStepsData.header.title}
                   </h2>
                   <p className="text-gray-400 mt-4 md:max-w-[600px] lg:max-w-[500px]">

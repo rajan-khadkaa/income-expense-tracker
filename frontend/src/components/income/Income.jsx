@@ -22,7 +22,7 @@ function Income() {
     title: "",
     desc: "",
     amount: "",
-    date: "",
+    date: new Date().toISOString().split("T")[0],
   });
 
   useEffect(() => {
@@ -211,7 +211,7 @@ function Income() {
   return (
     <div className="content-container p-3 sm:p-6 flex w-full  overflow-y-auto flex-col lg:flex-row">
       <div className=" flex flex-col gap-3 mb-0 h-fit flex-1 lg:w-[45%]">
-        <h3 className="mb-4 font-primaryBold text-xl w-full text-center bg-green-100 text-green-600 py-4 rounded">
+        <h3 className="mb-4 font-primaryBold text-xl w-full text-center bg-green-50 text-green-600 py-4 rounded">
           Total Income: Rs. {totalIncome}
         </h3>
         <hr className=" flex align-middle w-full" />
@@ -226,8 +226,10 @@ function Income() {
             name="title"
             value={formData.title}
             onChange={handleChange}
-            className={` px-2 py-2 rounded-md bg-gray-100 ${
-              formData.title ? "text-neutral-800" : "text-gray-400"
+            className={` px-3 py-3 md:py-2 w-full rounded-md bg-white md:bg-gray-100 ${
+              formData.title
+                ? "text-neutral-800"
+                : "text-gray-400 md:text-gray-400"
             }`}
           >
             <option value="" disabled>
@@ -246,8 +248,10 @@ function Income() {
             value={formData.amount}
             placeholder="Enter the amount"
             onChange={handleChange}
-            className={`px-2 py-2 rounded-md bg-gray-100 ${
-              formData.amount ? "text-neutral-800" : "text-gray-400"
+            className={`px-3 py-3 md:py-2 rounded-md bg-white md:bg-gray-100 ${
+              formData.amount
+                ? "text-neutral-800"
+                : "text-gray-300 md:text-gray-400"
             }`}
           />
           <input
@@ -256,8 +260,10 @@ function Income() {
             value={formData.date}
             placeholder="Pick the date"
             onChange={handleChange}
-            className={`px-2 py-2 rounded-md bg-gray-100 ${
-              formData.date ? "text-neutral-800" : "text-gray-400"
+            className={`px-3 py-3 md:py-2 w-full rounded-md bg-white md:bg-gray-100 ${
+              formData.date
+                ? "text-neutral-800"
+                : "text-gray-300 md:text-gray-400"
             }`}
           />
           <textarea
@@ -265,8 +271,10 @@ function Income() {
             name="desc"
             placeholder="Enter description"
             onChange={handleChange}
-            className={`px-2 py-2 rounded-md bg-gray-100 max-h-16 min-h-16 ${
-              formData.desc ? "text-neutral-800" : "text-gray-400"
+            className={`px-3 py-3 md:py-2 rounded-md bg-white md:bg-gray-100 h-24 ${
+              formData.desc
+                ? "text-neutral-800"
+                : "text-gray-300 md:text-gray-400"
             }`}
           ></textarea>
           <div className="flex flex-row w-full flex-wrap gap-3 font-primaryMedium text-sm">
@@ -274,17 +282,18 @@ function Income() {
               disabled={loading}
               type="submit"
               className={`${
-                loading ? "bg-gray-400" : "bg-green-800"
-              } text-white  w-full flex-1 py-2  rounded-md`}
+                loading ? "bg-gray-400" : "bg-[#4a1ab2] hover:bg-[#7242db]"
+                // loading ? "bg-gray-400" : "bg-green-700 hover:bg-green-800"
+              } text-white  w-full flex-1 py-4 md:py-[10px]  rounded-md`}
             >
               {loading ? "Adding..." : "Add Income"}
             </button>
-            <button
-              className="bg-red-800 text-white  w-full flex-1 py-2   rounded-md"
+            {/* <button
+              className="bg-red-100 text-red-700 hover:bg-red-200  w-full flex-1 py-4 md:py-2   rounded-md"
               onClick={handleReset}
             >
               Clear
-            </button>
+            </button> */}
           </div>
         </form>
       </div>
@@ -296,7 +305,7 @@ function Income() {
         <div className="px-1 w-full">
           <input
             value={search}
-            className="px-3 w-full text-gray-600 text-sm py-2 m-0 rounded-md placeholder:text-xs placeholder:text-gray-400"
+            className="px-3 w-full text-neutral-800 text-sm py-3 md:py-2 m-0 rounded-md placeholder:text-sm placeholder:text-gray-400"
             type="search"
             placeholder="Search here"
             onChange={(event) => setSearch(event.target.value.toLowerCase())}
